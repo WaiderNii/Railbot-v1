@@ -11,42 +11,42 @@ void pinModeMovements()
 
 void stopped()
 {
-    digitalWrite(pin1, LOW);
-    digitalWrite(pin2, LOW);
-    digitalWrite(pin3, LOW);
-    digitalWrite(pin4, LOW);
+    analogWrite(pin1, 0);
+    analogWrite(pin2, 0);
+    analogWrite(pin3, 0);
+    analogWrite(pin4, 0);
 }
 
 void forward()
 {
-    digitalWrite(pin1, HIGH);
-    digitalWrite(pin2, LOW);
-    digitalWrite(pin3, HIGH);
-    digitalWrite(pin4, LOW);
+    analogWrite(pin1, vel);
+    analogWrite(pin2, 0);
+    analogWrite(pin3, vel);
+    analogWrite(pin4, 0);
 }
 
 void backward()
 {
-    digitalWrite(pin1, LOW);
-    digitalWrite(pin2, HIGH);
-    digitalWrite(pin3, LOW);
-    digitalWrite(pin4, HIGH);
+    analogWrite(pin1, 0);
+    analogWrite(pin2, vel);
+    analogWrite(pin3, 0);
+    analogWrite(pin4, vel);
 }
 
 void right()
 {
-    digitalWrite(pin1, HIGH);
-    digitalWrite(pin2, LOW);
-    digitalWrite(pin3, LOW);
-    digitalWrite(pin4, HIGH);
+    analogWrite(pin1, vel);
+    analogWrite(pin2, 0);
+    analogWrite(pin3, 0);
+    analogWrite(pin4, vel);
 }
 
 void left()
 {
-    digitalWrite(pin1, LOW);
-    digitalWrite(pin2, HIGH);
-    digitalWrite(pin3, HIGH);
-    digitalWrite(pin4, LOW);
+    analogWrite(pin1, 0);
+    analogWrite(pin2, vel);
+    analogWrite(pin3, vel);
+    analogWrite(pin4, 0);
 }
 
 void command(int received)
@@ -62,11 +62,11 @@ void command(int received)
             debugPrint("Andando para TRÁS");
             break;
         case 3: //direita
-            right();
+            //right();
             debugPrint("Virando para DIREITA");
             break;
         case 4: //esquerda
-            left();
+            //left();
             debugPrint("Virando para ESQUERDA");
             break;
         default:

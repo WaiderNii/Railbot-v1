@@ -4,7 +4,7 @@
 #include "Debug.h" //acesse o arquivo para ativar/desativar o modo debug (está na pasta include)
 #include "Movements.h" //a definição dos pinos para controle da ponte H estão nesse header
 
-String received;
+//String received;
 
 void setup() {
 
@@ -24,11 +24,12 @@ void setup() {
 void loop() {
 
     if (SerialBT.available()) {
-        received = SerialBT.readString();
-        debugPrint("Recebido via Bluetooth: " + received);
+ 
+        int receivedInt = SerialBT.parseInt();
+        debugPrint("Recebido via Bluetooth: " + String(receivedInt));
+
+        command(receivedInt); 
 
     }
 
-    int receivedInt = received.toInt();
-    command(receivedInt);
 }

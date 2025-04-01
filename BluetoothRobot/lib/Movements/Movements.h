@@ -11,7 +11,7 @@ constexpr int pin3 = 26;
 constexpr int pin4 = 25;
 
 //Definição de velocidades
-constexpr int vel = 150;
+constexpr int vel = 255;
 
 //protótipo das funções
 void pinModeMovements();
